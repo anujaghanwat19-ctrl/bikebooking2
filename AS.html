@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+
+<head>
+    <title>BIKE Management System</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet"href="path/to/front-awesome/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+       .login-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid white;
+            border-radius: 5px;
+            background-color:burlywood;
+            background-image:url('baskett.jpg');
+            background-size:cover;
+            background-position:center;
+        }
+ .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+ .login-container .input-group {
+            margin-bottom: 20px;
+        }
+.login-container .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+.login-container .input-group input[type="submit"] {
+            background-color:hsla(332, 67%, 46%, 0.979);
+            color: rgb(18, 18, 16);
+            cursor: pointer;
+        }
+ .login-container .input-group a {
+            color: rgb(3, 52, 11);
+            text-decoration: none;
+            float: left;
+            font-size: 14px;
+        }
+.login-container .input-group a:hover {
+            text-decoration: underline;
+        }
+        nav {
+            background-color:black;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+.nav img {
+          height:70px;
+        }
+nav a {
+            float: left;
+            display: block;
+            color:white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+ nav a:hover {
+            background-color: #ddd;
+            color: whitesmoke;
+        }
+ .contact-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+            background-color:salmon;
+        }
+
+        .contact-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-container .input-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-container .input-group input,
+        .contact-container .input-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #181616;
+            border-radius: 5px;
+        }
+
+        .contact-container .input-group input[type="submit"] {
+            background-color: #1b6872;
+            color: rgb(20, 13, 13);
+            cursor: pointer;
+        }
+           /*about*/
+   
+
+        /*payment*/
+        .row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+/*customer*/
+.customer-form-container {
+        background-color: #f0f0f0;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 40%;
+        margin: auto;
+    }
+
+    .customer-form-container input[type="text"],
+    .-form-container input[type="email"] {
+        width: 80%;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        border: 1px solid #a58327;
+    }
+
+    .customer-form-container input[type="submit"] {
+        background-color: #16636d;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .customer-form-container input[type="submit"]:hover {
+        background-color:red;
+    }
+
+    /*categories*/
+    .card-img-top{
+      height: 200px;
+      width: 300px;
+
+    }
+    /*footer*/
+    
+    .footer {
+   position:relative;
+   left: 0;
+   
+   bottom: 0;
+  
+   width: 100%;
+   background-color:black;
+   color:white;
+   text-align: center;
+}
+
+
+
+.add-student-container,
+        .remove-student-container,
+        .search-student-container,
+        .edit-student-container {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #181616;
+            border-radius: 5px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group-addon {
+            font-size: 20px;
+        }
+
+        .input-group input[type="text"],
+        .input-group input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #9e7e7e;
+        }
+
+        .input-group input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            background-color: rgb(3, 52, 11);
+            color: #fdfcfb;
+            border: none;
+            cursor: pointer;
+        }
+ </style>
+</head>
+
+<body ng-controller="loginController">
+    <div class="container" ng-show="!isloggedin">
+        <div class="login-container">
+            <h2>Login</h2>
+            <form>
+                <div class="input-group">
+                    <input type="text" placeholder="Username" ng-model="username">
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Password" ng-model="password">
+                </div>
+                <div class="input-group">
+                    <input type="submit" value="Login" ng-click="login()">
+                </div>
+            </form>
+            <div class="input-group">
+                <a href="#/forgotpassword">Forgot Password?</a>
+            </div>
+            <div ng-show="error" style="color: blueviolet;"></div>
+        </div>
+    </div>
+  
+
+    <div class="container" ng-show="isloggedin">
+      <h1 style="background-color:hsla(332, 67%, 46%, 0.979)" align="center"> <b>BIKE BOOKING Management System</b></h1>
+
+        <nav>
+          
+          <a href="#home"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            <a href="#admin">Admin</a>
+            <a href="#about us">About Us</a>
+            <a href="#customer"><i class="fa fa-address-book" aria-hidden="true"></i>Customer</a>
+            <a href="#categories"><i class="fa fa-shopping-cart"></i>Categories</a>
+          
+            <a href="#payment"><i class="fa fa-cc-paypal"></i>Payment</a>
+            <a href="#contact"><i class="fa fa-phone-square"></i> Contact us</a>
+            <i class="fa fa-phone" aria-hidden="true" style="color: aliceblue;">8329474507</i></br>
+
+            <i class="fa fa-envelope" aria-hidden="true" style="color: aliceblue;">anuja20@gmail.com</i>
+
+
+
+              
+              <div ng-show="isloggedin">
+            </div>
+        
+        </nav>
+        
+
+        
+        <div ng-view></div>
+        <footer class="footer">
+          <center>
+
+                        <div class="col-lg-3 col-md-6 mb-5">
+                    
+                          <b>Our contact</b>
+                          
+                            <p><i class="fa fa-map-marker" aria-hidden="true"></i>Baramati,sharadanagar &nbsp;&nbsp;
+                            <i class="fa fa-phone" aria-hidden="true"></i>+918329474507&nbsp;&nbsp;&nbsp;&nbsp;
+                            <i class="fa fa-envelope mr-2"></i>bikebook@gmail.com</p>&nbsp;&nbsp;&nbsp;
+                          </div>
+                          </center>
+
+
+                      </footer>
+                    </div>
+    <script type="text/ng-template" id="home.html">
+      <div class="container">
+          <h2 style="text-align:center"><i><b>TWO WHEELER</b></i></h2>
+
+          <h2 style="text-align:center"><B style="color:green">BIKE</B></h2>
+
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="c:\Users\Anuja\Desktop\project AJS\admin.jpeg" width="1100px">
+                </div>
+                <div class="carousel-item">
+                  <img src="c:\Users\Anuja\Desktop\project AJS\admin2.jpeg" width="1100px" alt="Image 2">
+              </div>
+              <div class="carousel-item">
+                  <img src="c:\Users\Anuja\Desktop\project AJS\admin3.jpeg" width="1100px" alt="Image 3">
+              </div>
+              <div class="carousel-item">
+                  <img src="c:\Users\Anuja\Desktop\project AJS\admin4.jpeg" width="1000px" alt="Image 4">
+              </div>
+              
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            <div class=" text-center p-2 mb-3 bg-light">
+              <span class="fs-3"><h3><b>BIKE</b></h3></span>
+             </div>
+           </div>
+             <div class="row row-cols-1 row-cols-md-3 g-4">
+                 <div class="col">
+                   <div class="card">
+                     <img src="c:\Users\Anuja\Desktop\project AJS\home1.jpeg" class="card-img-top">
+                     <div class="card-body">
+                       <h5 class="card-title">TVS raider 125</h5>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col">
+                   <div class="card">
+                     <img src="c:\Users\Anuja\Desktop\project AJS\home2.jpeg" class="card-img-top">
+                     <div class="card-body">
+                       <h5 class="card-title">TVS Apache RTR 160</h5>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col">
+                     <div class="card">
+                       <img src="c:\Users\Anuja\Desktop\project AJS\home3.jpeg" class="card-img-top">
+                       <div class="card-body">
+                         <h5 class="card-title">TVS sport</h5>
+                       </div>
+                     </div>
+                   </div>
+                 <div class="col">
+                   <div class="card">
+                     <img src="c:\Users\Anuja\Desktop\project AJS\home4.jpeg" class="card-img-top">
+                     <div class="card-body">
+                       <h5 class="card-title">TVS Ronin</h5>
+                     </div>
+                   </div>
+                 </div>
+               <div class="col">
+                 <div class="card">
+                   <img src="c:\Users\Anuja\Desktop\project AJS\home5.jpeg" class="card-img-top">
+                   <div class="card-body">
+                     <h5 class="card-title">TVS Ronin</h5>
+                   </div>
+                 </div>
+               </div>
+               <div class="col">
+                 <div class="card">
+                   <img src= "c:\Users\Anuja\Desktop\project AJS\home6.jpeg" class="card-img-top">
+                   <div class="card-body">
+                     <h5 class="card-title">TVS Apache RTR 160 4V</h5>
+                   </div>
+                 </div>
+               </div>
+               <div class="col">
+                 <div class="card">
+                   <img src="c:\Users\Anuja\Desktop\project AJS\home7.jpeg" class="card-img-top">
+                   <div class="card-body">
+                     <h5 class="card-title">TVS Apache RR 310</h5>
+                   </div>
+                 </div>
+             </div>
+             <div class="col">
+                 <div class="card">
+                   <img src="c:\Users\Anuja\Desktop\project AJS\home8.jpeg" class="card-img-top">
+                   <div class="card-body">
+                     <h5 class="card-title">TVS Apache RTR 310</h5>
+                   </div>
+                 </div>
+             </div>
+             <div class="col">
+                 <div class="card">
+                   <img src="c:\Users\Anuja\Desktop\project AJS\home9.jpeg"class="card-img-top">
+                   <div class="card-body">
+                     <h5 class="card-title">TVS Apache RTR 200 4v</h5>
+                   </div>
+                 </div>
+             </div>
+
+             <div class="text-center p-2 mb-3 bg-light">
+             
+
+               <span class="fs-3"><h3><b>scooty</b></h3></span>
+              </div>
+            </div>
+          
+             
+     
+             <div class="row row-cols-1 row-cols-md-3 g-4">
+                 <div class="col">
+                   <div class="card">
+                     <img src="c:\Users\Anuja\Desktop\project AJS\home10.jpeg" class="card-img-top">
+                     <div class="card-body">
+                       <h5 class="card-title">TVS iQube</h5>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col">
+                   <div class="card">
+                     <img src="c:\Users\Anuja\Desktop\project AJS\home11.jpeg" class="card-img-top">
+                     <div class="card-body">
+                       <h5 class="card-title">TVS Jupiter 125</h5>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="col">
+                     <div class="card">
+                       <img src="c:\Users\Anuja\Desktop\project AJS\home13.jpeg" class="card-img-top">
+                       <div class="card-body">
+                         <h5 class="card-title">TVS Jupiter</h5>
+                       </div>
+                     </div>
+                   </div>
+                 <div class="col">
+                   <div class="card">
+                     <img src="c:\Users\Anuja\Desktop\project AJS\home14.jpeg" class="card-img-top">
+                     <div class="card-body">
+                       <h5 class="card-title">TVS Jupioter 120</h5>
+                     </div>
+                   </div>
+                 </div>
+               
+             
+
+
+  
+
+    <script type="text/ng-template" id="admin.html">
+
+        <div>
+           <h1>Welcome Admin</h1>
+        </div>
+   
+    
+    
+    <script type="text/ng-template" id="about us.html">
+       <div class="about us-container">
+          <h1 style="text-align:center "><i><b>About us</b></i></h1> 
+    
+               <div class="col">
+                <div class="col-md-20">
+                    <p><b>A Bike Management System is a software solution designed to manage and streamline various aspects of bicycle-related operations. It is commonly used by bike rental businesses, bike-sharing services, repair shops, or organizations managing fleets of bicycles.   
+                        The main objective of a Bike Management System is to enhance efficiency, improve customer experience, and optimize resource utilization. It helps in tracking bike availability, monitoring maintenance schedules, managing rentals or sales, and maintaining customer records.  
+                         Bike Inventory Management – Keeps track of all available bikes, including their status (rented, available, or under maintenance).  
+                         Rental and Booking System – Allows users to reserve, rent, or return bikes online or through an app.  
+                         Maintenance Tracking – Notifies when a bike requires servicing or repairs.  
+                         User Management – Stores customer details, rental history, and payment records.  
+                         GPS Tracking – (For smart systems) Enables tracking of bike locations for security and operational efficiency.  
+                         Payment Integration – Supports online payments, subscriptions, and invoicing.  
+                         Reporting and Analytics – Generates reports on usage, revenue, and maintenance history.  
+                        
+                        
+          
+              </div>
+              <div class="col-md-20">
+                  <div class="col">
+                      <div class="col-md-6 mb-3">
+                    
+                      <img src="c:\Users\Anuja\Desktop\project AJS\admin4.jpeg" width="800px" height="500px;">
+                      </div>
+                     <div>
+                     </div>
+                  </div>  
+              </div>
+          </script>
+      
+      
+
+      
+      
+
+            <script type="text/ng-template" id="customer.html">
+               <div>
+                <h1>Welcome to customer</h1>
+               </div>
+                <div class="customer-form-container">
+                    <h1>Customer Form</h1>
+                    <form ng-submit="submitcustomerForm()">
+                        <div class="input-group">
+                            <input type="text" placeholder="Customer Name" ng-model="customer.name">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" placeholder="Customer ID" ng-model="customer.id">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" placeholder="Customer Number" ng-model="customer.stdmno">
+                        </div>
+                        <div class="input-group">
+                            <input type="text" placeholder="Customer Address" ng-model="customer.std_add">
+                        </div>
+                        <div class="input-group">
+                            <input type="email" placeholder="Customer Email" ng-model="customer.email">
+                        </div>
+                        <div class="input-group">
+                            <input type="submit" value="Submit">
+                        </div>
+                    </form>
+                </div>
+            </script>
+        </div>
+    </script>
+
+                    <script type="text/ng-template" id="categories.html">
+            <div class="categories-container">
+             
+              <div class=" text-center p-2 mb-3 bg-light">
+                <span class="fs-3"><h3><b>CATEGORIES</b></h3></span>
+               </div>
+              </div>
+          
+                <div class=" text-center p-2 mb-3 bg-light">
+                 <span class="fs-3"><h3><b>BIKE</b></h3></span>
+                </div>
+              </div>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                      <div class="card">
+                        <img src="c:\Users\Anuja\Desktop\project AJS\home1.jpeg" class="card-img-top">
+                        <div class="card-body">
+                          <h5 class="card-title">TVS raider 125</h5>
+                          <p class="card-text">Rs.1,500,00/-</p>
+                          <button class="btn btn-primary" ng-click="redirectToCustomer()">By Now</button>
+
+                       
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card">
+                        <img src="c:\Users\Anuja\Desktop\project AJS\home2.jpeg" class="card-img-top">
+                        <div class="card-body">
+                          <h5 class="card-title">TVS Apache RTR 160</h5>
+                          <p class="card-text">Rs.1,450,77/-</p>
+                          <button class="btn btn-primary" ng-click="redirectToCustomer()">By Now</button>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                          <img src="c:\Users\Anuja\Desktop\project AJS\home3.jpeg" class="card-img-top">
+                          <div class="card-body">
+                            <h5 class="card-title">TVS sport</h5>
+                            <p class="card-text">Rs.1,200,30/-</p>
+                            <button class="btn btn-primary" ng-click="redirectToCustomer()">By Now</button>
+
+                          </div>
+                        </div>
+                      </div>
+                    <div class="col">
+                      <div class="card">
+                        <img src="c:\Users\Anuja\Desktop\project AJS\home4.jpeg" class="card-img-top">
+                        <div class="card-body">
+                          <h5 class="card-title">TVS Ronin</h5>
+                          <p class="card-text">Rs.83,055/-</p>
+                          <button class="btn btn-primary" ng-click="redirectToCustomer()">By Now</button>
+
+                        </div>
+                      </div>
+                    </div>
+                  <div class="col">
+                    <div class="card">
+                      <img src="c:\Users\Anuja\Desktop\project AJS\home5.jpeg" class="card-img-top">
+                      <div class="card-body">
+                        <h5 class="card-title">TVS Ronin</h5>
+                        <p class="card-text">Rs.77,200/-</p>
+                        <button class="btn btn-primary" ng-click="redirectToCustomer()">By Now</button>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card">
+                      <img src= "c:\Users\Anuja\Desktop\project AJS\home6.jpeg" class="card-img-top">
+                      <div class="card-body">
+                        <h5 class="card-title">TVS Apache RTR 160 4V</h5>
+                        <p class="card-text">Rs.100000/-</p>
+                        <button class="btn btn-primary" ng-click="redirectToCustomer()">By Now</button>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card">
+                      <img src="c:\Users\Anuja\Desktop\project AJS\home7.jpeg" class="card-img-top">
+                      <div class="card-body">
+                        <h5 class="card-title">TVS Apache RR 310</h5>
+                        <p class="card-text">Rs.1,50,440/-</p>
+                        <button class="btn btn-primary" ng-click="redirectToCustomer()">By Now</button>
+
+                      </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                      <img src="c:\Users\Anuja\Desktop\project AJS\home8.jpeg" class="card-img-top">
+                      <div class="card-body">
+                        <h5 class="card-title">TVS Apache RTR 310</h5>
+                        <p class="card-text">Rs.95,000/-</p>
+                        <button class="btn btn-primary" ng-click="redirectToCustomer()">By Now</button>
+
+                      </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                      <img src="c:\Users\Anuja\Desktop\project AJS\home9.jpeg"class="card-img-top">
+                      <div class="card-body">
+                        <h5 class="card-title">TVS Apache RTR 200 4v</h5>
+                        <p class="card-text">Rs.85,789/-</p>
+                        <button class="btn btn-primary" ng-click="redirectToCustomer()">By Now</button>
+
+                      </div>
+                    </div>
+                </div>
+
+                <div class="text-center p-2 mb-3 bg-light">
+                
+
+                  <span class="fs-3"><h3><b>SCOOTY</b></h3></span>
+                 </div>
+               </div>
+             
+                
+        
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                      <div class="card">
+                        <img src="c:\Users\Anuja\Desktop\project AJS\home10.jpeg" class="card-img-top">
+                        <div class="card-body">
+                          <h5 class="card-title">TVS iQube </h5>
+                          <p class="card-text">Rs.50.000/-</p>
+                          <button class="btn btn-primary" ng-click="redirectToCustomer()">By Now</button>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card">
+                        <img src="c:\Users\Anuja\Desktop\project AJS\home11.jpeg" class="card-img-top">
+                        <div class="card-body">
+                          <h5 class="card-title">TVS Jupiter 125</h5>
+                          <p class="card-text">Rs.1,20,300/-</p>
+                          <button class="btn btn-primary" ng-click="redirectToCustomer()">By Now</button>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                          <img src="c:\Users\Anuja\Desktop\project AJS\home12.jpeg" class="card-img-top">
+                          <div class="card-body">
+                            <h5 class="card-title">TVS Jupiter</h5>
+                            <p class="card-text">Rs.1,97,300/-</p>
+                            <button class="btn btn-primary" ng-click="redirectToCustomer()">By Now</button>
+
+                          </div>
+                        </div>
+                      </div>
+                    <div class="col">
+                      <div class="card">
+                        <img src="c:\Users\Anuja\Desktop\project AJS\home13.jpeg" class="card-img-top">
+                        <div class="card-body">
+                          <h5 class="card-title">TVs Jupiter 120</h5>
+                          <p class="card-text">Rs.1,27,890/-</p>
+                          <button class="btn btn-primary" ng-click="redirectToCustomer()">By Now</button>
+
+                        </div>
+                      </div>
+                    </div>
+                  <div class="col">
+                    <div class="card">
+                      <img src="c:\Users\Anuja\Desktop\project AJS\home14.jpeg" class="card-img-top">
+                      <div class="card-body">
+                        <h5 class="card-title">TVS Ntorq</h5>
+                        <p class="card-text">Rs.1,500,00/-</p>
+                        <button class="btn btn-primary" ng-click="redirectToCustomer()">By Now</button>
+
+                      
+
+                  
+
+                  <script type="text/ng-template" id="payment.html">
+                    <div>
+                        <h1>contact</h1> 
+                        <script type="text/ng-template" id="payment.html">
+                            <div>
+                                <h1>Welcome Payment us</h1>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="payment-container">
+                                        <h2> Payment Us</h2>
+                                        <form ng-submit="submitPaymentForm()">
+                                            <div class="input-group">
+                                                <input type="text" placeholder="Your Payment No" ng-model="payment.no">
+                                            </div>
+                                            <div class="input-group">
+                                                <input type="email" placeholder="Your Email" ng-model="payment.email">
+                                            </div>
+                                            <div class="input-group">
+                                                <input type="text" placeholder="Your Phone No" ng-model="payment.phone no">
+                
+                                            </div>
+                                             <div class="input-group">
+                                                <input type="text" placeholder="Your Amount" ng-model="payment.amount">
+                
+                                            </div>
+                                            <div class="input-group">
+                                              <button type="submit" onclick="showAlert1()">Send  </button><br>
+                
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       </script>
+                
+      
+        
+
+     
+  
+        
+        
+
+
+<script type="text/ng-template" id="contact.html">
+    <div>
+        <h1>contact</h1> 
+        <script type="text/ng-template" id="contact.html">
+            <div>
+                <h1>Welcome Contact us</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-info">
+                        <h2>Contact Information</h2>
+                        <p><strong>Email:</strong><i class="fa fa-envelope"></i> bike@123.com</p>
+                        <p><strong>Phone:</strong><i class="fa fa-phone"></i> +1234567890</p>
+                        <p><strong>Address:</strong><i class="fa fa-road"></i> 122, Baramati Colony, Baramati, Pune</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-container">
+                        <h2> Contact Us</h2>
+                        <form ng-submit="submitContactForm()">
+                            <div class="input-group">
+                                <input type="text" placeholder="Your Name" ng-model="contact.name">
+                            </div>
+                            <div class="input-group">
+                                <input type="email" placeholder="Your Email" ng-model="contact.email">
+                            </div>
+                            <div class="input-group">
+                                <textarea placeholder="Your Message" ng-model="contact.message"></textarea>
+                            </div>
+                            <div class="input-group">
+                              <button type="submit" onclick="showAlert()">Send</button><br>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+       </script>
+
+                     
+            
+
+
+
+    <script type="text/ng-template" id="forgotpassword.html">
+        <div>
+            <h1>Forgot Password</h1>
+            <p>Enter your email to reset your password</p>
+        </div>
+    </script>
+
+    <script>
+        var mainApp = angular.module("mainApp", ['ngRoute']);
+
+        mainApp.config(['$routeProvider', function ($routeProvider) {
+
+            $routeProvider
+                .when('/home', {
+                    templateUrl: 'home.html',
+                    controller: 'homeController'
+                })
+                .when('/admin', {
+                    templateUrl: 'admin.html',
+                    controller: 'adminController'
+                })
+                .when('/about us', {
+                    templateUrl: 'about us.html',
+                    controller: 'aboutusController'
+                })
+                .when('/customer', {
+                    templateUrl: 'customer.html',
+                    controller: 'customerController'
+                })
+                .when('/categories', {
+                    templateUrl: 'categories.html',
+                    controller: 'categoriesController'
+                })
+                
+                
+                .when('/payment', {
+                    templateUrl: 'payment.html',
+                    controller: 'paymentController'
+                })
+                .when('/contact', {
+                    templateUrl: 'contact.html',
+                    controller: 'contactController'
+                })
+                .when('/forgotpassword', {
+                    templateUrl: 'forgotpassword.html'
+                })
+                .otherwise({
+                    redirectTo: '/home'
+                });
+
+        }]);
+
+        mainApp.controller('homeController', function ($scope) {
+            $scope.message = "Welcome to Home";
+        });
+
+        mainApp.controller('adminController', function ($scope) {
+            $scope.message = "Welcome Admin";
+        });
+        mainApp.controller('aboutusController', function ($scope) {
+            $scope.message = "Welcome to about us";
+        });
+        mainApp.controller('customerController', function ($scope) {
+            $scope.message = "customer";
+
+        });
+
+        mainApp.controller('categoriesController', function ($scope) {
+            $scope.message = "Welcome to categories";
+        });
+
+        
+
+       
+        mainApp.controller('paymentController', function ($scope) {
+            $scope.message = "payment";
+        });
+        mainApp.controller('contactController', function ($scope) {
+            $scope.message = "contact";
+        });
+
+        mainApp.controller('loginController', function ($scope, $location) {
+            $scope.login = function () {
+                var username = $scope.username;
+                var password = $scope.password;
+
+               if (username === 'anuja' && password === '20032006') {
+                    $scope.isloggedin = true;
+                    $location.path('/home');
+                } else {
+                    alert("Invalid username or password");
+                }
+            };
+
+            $scope.logout = function () {
+                $scope.isloggedin = false;
+                $location.path('/home');
+            };
+        });
+        
+
+//about
+mainApp.controller('aboutController', function ($scope) {
+    $scope.message = "Welcome to about us";
+});
+
+//categeries
+mainApp.controller('categoriesController', function ($scope, $location) {
+    $scope.redirectToCustomer = function () {
+        $location.path('/customer');
+    };
+    
+});
+
+//customer
+mainApp.controller('customerController', function ($scope, $location) {
+            $scope.customer = {};
+            $scope.submitted = false;
+
+            $scope.submitcustomerForm = function () {
+              $scope.submitted = true;
+                $location.path('/payment');
+            };
+        });
+//payment
+function showAlert1() {
+    alert ("Payment send successfully");
+    
+  }
+ 
+
+
+//contactus
+function showAlert() {
+    alert ("message send successfully");
+  }
+ 
+
+    </script>
+
+</body>
+
+</html>
